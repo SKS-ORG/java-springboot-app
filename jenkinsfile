@@ -60,7 +60,7 @@ pipeline {
                         "files": [
                             {
                                 "pattern": "staging/(*)",
-                                "target": "jfrog-repo/{1}",
+                                "target": "maven-repo/{1}",
                                 "flat": "false",
                                 "props" : "${properties}",
                                 "exclusions": [ "*.sha1", "*.md5"]
@@ -79,7 +79,7 @@ pipeline {
             steps {
                 script {
                     echo '-------------- Docker Build Started -------------'
-                    app = docker.build("https://hisportal.jfrog.io/avd1-docker-local/myapp:1.0")
+                    app = docker.build("hisportal.jfrog.io/docker-repo-docker-local/myapp:1.0")
                     echo '-------------- Docker Build Ended -------------'
                 }
             }
